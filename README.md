@@ -26,10 +26,30 @@ Notes:
 - Everything the app needs is inside the zip. No installer or separate runtime
   is needed.
 
-### Linux and macOS
+### Linux (x86_64)
 
-No current build is published for these platforms yet. Check the Releases page
-for updates.
+1. Download `fwcom-0.1.3-linux-x86_64.zip` and extract it to a folder you can write to (for example your home directory). The app writes its `data/` folder and settings next to the `fwcom` binary; if that folder is read-only it falls back to `~/.local/share/fwcom`.
+2. Install the system libraries the build links against. On Debian 13 / Ubuntu 24.04 and newer:
+   `sudo apt install libavcodec61 libavformat61 libavutil59 libswresample5 libswscale8 libsqlite3-0 libegl1 libssl3t64 libbrotli1 libudev1`
+   (older Ubuntu releases ship different FFmpeg package versions; the exact sonames the binary needs are listed in `README-linux.txt` inside the zip.)
+3. Run `./fwcom`.
+
+Notes:
+
+- Built on Debian 13 (glibc 2.41, GCC 14). It will not start on older distributions with an older glibc.
+- Requires a GPU driver with Vulkan support.
+- Unlike the Windows zip, FFmpeg and OpenSSL are not bundled; they come from the distribution packages above.
+- Optional at runtime: `libsecret-1-0` (remembers the AI API key), `xdg-utils` (Open-folder buttons), `pulseview` (Logic Analyzer VCD hand-off), `python3` + `python3-debugpy` (Python editor Run/Debug).
+- `desktop/` inside the zip has a `.desktop` entry and icon if you want a launcher.
+- The C-to-WASM compiler toolchain (`config/wiliclang`) is Windows-only for now; on Linux the WASM editor looks for a `wiliclang` on `$PATH`.
+
+### macOS
+
+No macOS build is published yet.
+
+## Release notes
+
+See [CHANGELOG.md](CHANGELOG.md).
 
 ## Reporting problems
 
