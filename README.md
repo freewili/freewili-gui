@@ -6,13 +6,20 @@ more.
 
 ## Download
 
-Builds are published on the **[Releases](https://github.com/freewili/freewili-gui/releases)**
-page. Get the latest release from
-**[releases/latest](https://github.com/freewili/freewili-gui/releases/latest)**.
+Builds are published on the **[Releases](https://github.com/freewili/freewili-gui/releases)** page.
+The current downloads for each platform are:
+
+| Platform | Version | Download |
+| --- | --- | --- |
+| macOS Apple Silicon (arm64), macOS 26.0+ | 0.2.0 | [freewili-gui-0.2.0-macos-arm64.zip](https://github.com/freewili/freewili-gui/releases/download/v0.2.0/freewili-gui-0.2.0-macos-arm64.zip) |
+| Windows (x64) | 0.1.3 | [fwcom-0.1.3.zip](https://github.com/freewili/freewili-gui/releases/download/v0.1.3/fwcom-0.1.3.zip) |
+| Linux (x86_64) | 0.1.3 | [fwcom-0.1.3-linux-x86_64.zip](https://github.com/freewili/freewili-gui/releases/download/v0.1.3/fwcom-0.1.3-linux-x86_64.zip) |
+
+The macOS release is 0.2.0; Windows and Linux downloads remain at 0.1.3.
 
 ### Windows (x64)
 
-1. Download `fwcom-<version>.zip` from the release.
+1. Download [fwcom-0.1.3.zip](https://github.com/freewili/freewili-gui/releases/download/v0.1.3/fwcom-0.1.3.zip).
 2. Extract it to a folder you can write to, such as your Documents or Desktop
    folder. The app stores its `data\` folder and settings next to `fwcom.exe`,
    so `C:\Program Files` will not work.
@@ -43,9 +50,25 @@ Notes:
 - `desktop/` inside the zip has a `.desktop` entry and icon if you want a launcher.
 - The C-to-WASM compiler toolchain (`config/wiliclang`) is Windows-only for now; on Linux the WASM editor looks for a `wiliclang` on `$PATH`.
 
-### macOS
+### macOS (Apple Silicon / arm64)
 
-No macOS build is published yet.
+Requires an Apple Silicon Mac running macOS 26.0 or later. This build does not
+run on Intel Macs.
+
+1. Download [freewili-gui-0.2.0-macos-arm64.zip](https://github.com/freewili/freewili-gui/releases/download/v0.2.0/freewili-gui-0.2.0-macos-arm64.zip).
+2. Extract the ZIP and move **FreeWili GUI.app** to Applications.
+
+Notes:
+
+- This build is ad-hoc signed, not Developer ID signed or notarized. macOS
+  Gatekeeper may block a downloaded copy; signing and notarization are still
+  required for normal customer distribution.
+- Python 3.13, its debugger, the OneWili API, Clang, wasm-ld, and runtime
+  libraries are bundled. Homebrew is not required for the included tools.
+- Projects and settings are stored in
+  `~/Library/Application Support/FreeWili GUI/`.
+- The HackRF plugin is not included in this package. See the
+  [0.2.0 release notes](https://github.com/freewili/freewili-gui/releases/tag/v0.2.0) for details and known limitations.
 
 ## Release notes
 
@@ -54,5 +77,5 @@ See [CHANGELOG.md](CHANGELOG.md).
 ## Reporting problems
 
 Open an issue on this repository and include the release version shown on the
-app's Welcome screen, your Windows version, and what you were doing when the
-problem occurred.
+app's Welcome screen, your operating system and version, and what you were
+doing when the problem occurred.
