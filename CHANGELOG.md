@@ -1,5 +1,26 @@
 # Release notes
 
+## 0.3.0 preview - 2026-09-26
+
+[Windows x64 preview](https://github.com/freewili/freewili-gui/releases/tag/v0.3.0).
+GUI regression failures remain unresolved, so this release is marked prerelease.
+Matching macOS and Linux builds and hardware verification are pending; existing
+downloads remain at macOS 0.2.0 and Linux 0.1.3.
+
+- CM0 Linux console, shell, Python run/debug, file browsing/transfers, and Linux Imager.
+- Firmware Updater with Stable/Preview releases, verified manifests and images,
+  local firmware files, and coordinated Main, Display, and wifiCPU installation.
+- Latest OneWili Python API with raw binary frames, CAN FD, complete logic-analyzer
+  samples, stream diagnostics, and a PWM capture example.
+- Logic Analyzer/Player cursor and DOM controls, editor examples/help, offline
+  map and AI Workbench improvements.
+- Packaging includes OneWili Python and installation notes, excludes developer
+  scratch files and debug symbols, and stamps the executable with the release version.
+
+For CM0 app development, use [WiliCM0BSP](https://github.com/freewili/wilicm0bsp)
+and install apps under **`/home/apps/`** for the Linux Apps launcher.
+See the release notes for Python/OpenOCD requirements and platform gaps.
+
 ## 0.2.0 - 2026-09-12
 
 [macOS Apple Silicon release](https://github.com/freewili/freewili-gui/releases/tag/v0.2.0), requiring macOS 26.0 or later.

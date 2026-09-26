@@ -12,14 +12,17 @@ The current downloads for each platform are:
 | Platform | Version | Download |
 | --- | --- | --- |
 | macOS Apple Silicon (arm64), macOS 26.0+ | 0.2.0 | [freewili-gui-0.2.0-macos-arm64.zip](https://github.com/freewili/freewili-gui/releases/download/v0.2.0/freewili-gui-0.2.0-macos-arm64.zip) |
-| Windows (x64) | 0.1.3 | [fwcom-0.1.3.zip](https://github.com/freewili/freewili-gui/releases/download/v0.1.3/fwcom-0.1.3.zip) |
+| Windows (x64), preview | 0.3.0 | [fwcom-0.3.0.zip](https://github.com/freewili/freewili-gui/releases/download/v0.3.0/fwcom-0.3.0.zip) |
 | Linux (x86_64) | 0.1.3 | [fwcom-0.1.3-linux-x86_64.zip](https://github.com/freewili/freewili-gui/releases/download/v0.1.3/fwcom-0.1.3-linux-x86_64.zip) |
 
-The macOS release is 0.2.0; Windows and Linux downloads remain at 0.1.3.
+Windows 0.3.0 is a **preview** with unresolved GUI regression tests. It adds CM0 Linux tools, the Firmware Updater, and the latest OneWili
+binary streaming API. Matching macOS and Linux 0.3.0 builds and device tests
+are pending; their existing downloads remain at the versions above.
+The previous [Windows 0.1.3 stable download](https://github.com/freewili/freewili-gui/releases/download/v0.1.3/fwcom-0.1.3.zip) remains available.
 
 ### Windows (x64)
 
-1. Download [fwcom-0.1.3.zip](https://github.com/freewili/freewili-gui/releases/download/v0.1.3/fwcom-0.1.3.zip).
+1. Download [fwcom-0.3.0.zip](https://github.com/freewili/freewili-gui/releases/download/v0.3.0/fwcom-0.3.0.zip).
 2. Extract it to a folder you can write to, such as your Documents or Desktop
    folder. The app stores its `data\` folder and settings next to `fwcom.exe`,
    so `C:\Program Files` will not work.
@@ -30,13 +33,30 @@ Notes:
 - The build is not code-signed, so Windows SmartScreen warns on first launch.
   Choose **More info**, then **Run anyway**.
 - A GPU driver with Vulkan support is required.
-- Everything the app needs is inside the zip. No installer or separate runtime
-  is needed.
+- The ZIP includes the C/C++ Wasm compiler, OneWili Python sources/examples,
+  map tools, tutorial video libraries, and Linux Imager helper.
+- Python Run/Debug requires Python 3.10+ with pip. Initial setup needs internet
+  access for debugpy and the included OneWili package's dependencies.
+- Display recovery through the built-in debug probe requires separately
+  installed Raspberry Pi OpenOCD with RP2350 scripts. The Main recovery-loader
+  path does not need it.
+- PicoScope hardware requires its PicoSDK runtime and device driver. HackRF
+  is not included in this package. Rust Wasm requires a separate Rust toolchain.
+- Read the [0.3.0 release notes](https://github.com/freewili/freewili-gui/releases/tag/v0.3.0)
+  for firmware requirements, verification results, and known limitations.
+
+### Linux applications on FreeWili 2
+
+Use [WiliCM0BSP](https://github.com/freewili/wilicm0bsp) for examples, agent
+instructions, the CM0 driver, and a pinned [OneWili](https://github.com/freewili/onewili)
+API. Put applications in the CM0 Linux **`/home/apps/` folder** for easy
+launching from Linux Apps. The GUI's CM0 shell, file transfer, and Python tools
+require compatible Main firmware and a CM0 image with the matching bridge.
 
 ### Linux (x86_64)
 
 1. Download `fwcom-0.1.3-linux-x86_64.zip` and extract it to a folder you can write to (for example your home directory). The app writes its `data/` folder and settings next to the `fwcom` binary; if that folder is read-only it falls back to `~/.local/share/fwcom`.
-2. Install the system libraries the build links against. On Debian 13 / Ubuntu 24.04 and newer:
+2. Install the system libraries the build links against. On Debian 13:
    `sudo apt install libavcodec61 libavformat61 libavutil59 libswresample5 libswscale8 libsqlite3-0 libegl1 libssl3t64 libbrotli1 libudev1`
    (older Ubuntu releases ship different FFmpeg package versions; the exact sonames the binary needs are listed in `README-linux.txt` inside the zip.)
 3. Run `./fwcom`.
