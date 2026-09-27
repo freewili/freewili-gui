@@ -1,5 +1,17 @@
 # Release notes
 
+## 0.3.1 Linux preview - 2026-09-27
+
+[Linux x86_64 preview](https://github.com/freewili/freewili-gui/releases/tag/v0.3.1).
+Windows/macOS builds and verification remain pending.
+
+- Longer Main/Display settling, SD-mount, and USB reconnect windows during updates.
+- Accept successful power acknowledgements that contain startup diagnostics.
+- Detect disconnected POSIX serial ports and report Display probe USB failures.
+- Include OneWili Python sources, examples, and license in the Linux package.
+- Operator reported a successful hardware retry after the timing changes;
+  intermittent SD/probe issues and broader release qualification remain open.
+
 ## 0.3.0 preview - 2026-09-26
 
 [Windows x64 preview](https://github.com/freewili/freewili-gui/releases/tag/v0.3.0).

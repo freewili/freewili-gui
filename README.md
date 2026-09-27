@@ -13,11 +13,12 @@ The current downloads for each platform are:
 | --- | --- | --- |
 | macOS Apple Silicon (arm64), macOS 26.0+ | 0.2.0 | [freewili-gui-0.2.0-macos-arm64.zip](https://github.com/freewili/freewili-gui/releases/download/v0.2.0/freewili-gui-0.2.0-macos-arm64.zip) |
 | Windows (x64), preview | 0.3.0 | [fwcom-0.3.0.zip](https://github.com/freewili/freewili-gui/releases/download/v0.3.0/fwcom-0.3.0.zip) |
-| Linux (x86_64) | 0.1.3 | [fwcom-0.1.3-linux-x86_64.zip](https://github.com/freewili/freewili-gui/releases/download/v0.1.3/fwcom-0.1.3-linux-x86_64.zip) |
+| Linux (x86_64), preview | 0.3.1 | [fwcom-0.3.1-linux-x86_64.zip](https://github.com/freewili/freewili-gui/releases/download/v0.3.1/fwcom-0.3.1-linux-x86_64.zip) |
 
 Windows 0.3.0 is a **preview** with unresolved GUI regression tests. It adds CM0 Linux tools, the Firmware Updater, and the latest OneWili
-binary streaming API. Matching macOS and Linux 0.3.0 builds and device tests
-are pending; their existing downloads remain at the versions above.
+binary streaming API. Linux 0.3.1 is also a **preview**, adding firmware-updater settling and
+reconnection fixes. Windows/macOS 0.3.1 builds and device tests are pending;
+macOS remains at 0.2.0.
 The previous [Windows 0.1.3 stable download](https://github.com/freewili/freewili-gui/releases/download/v0.1.3/fwcom-0.1.3.zip) remains available.
 
 ### Windows (x64)
@@ -55,7 +56,7 @@ require compatible Main firmware and a CM0 image with the matching bridge.
 
 ### Linux (x86_64)
 
-1. Download `fwcom-0.1.3-linux-x86_64.zip` and extract it to a folder you can write to (for example your home directory). The app writes its `data/` folder and settings next to the `fwcom` binary; if that folder is read-only it falls back to `~/.local/share/fwcom`.
+1. Download `fwcom-0.3.1-linux-x86_64.zip` and extract it to a folder you can write to (for example your home directory). The app writes its `data/` folder and settings next to the `fwcom` binary; if that folder is read-only it falls back to `~/.local/share/fwcom`.
 2. Install the system libraries the build links against. On Debian 13:
    `sudo apt install libavcodec61 libavformat61 libavutil59 libswresample5 libswscale8 libsqlite3-0 libegl1 libssl3t64 libbrotli1 libudev1`
    (older Ubuntu releases ship different FFmpeg package versions; the exact sonames the binary needs are listed in `README-linux.txt` inside the zip.)
@@ -63,12 +64,18 @@ require compatible Main firmware and a CM0 image with the matching bridge.
 
 Notes:
 
-- Built on Debian 13 (glibc 2.41, GCC 14). It will not start on older distributions with an older glibc.
+- Built on a Debian 13 derivative (glibc 2.41, GCC 14). It will not start on older distributions with an older glibc.
 - Requires a GPU driver with Vulkan support.
 - Unlike the Windows zip, FFmpeg and OpenSSL are not bundled; they come from the distribution packages above.
 - Optional at runtime: `libsecret-1-0` (remembers the AI API key), `xdg-utils` (Open-folder buttons), `pulseview` (Logic Analyzer VCD hand-off), `python3` + `python3-debugpy` (Python editor Run/Debug).
 - `desktop/` inside the zip has a `.desktop` entry and icon if you want a launcher.
 - The C-to-WASM compiler toolchain (`config/wiliclang`) is Windows-only for now; on Linux the WASM editor looks for a `wiliclang` on `$PATH`.
+- Includes OneWili Python sources and examples; Python itself is a system dependency.
+- Firmware Updater requires USB permissions and a mounted recovery volume
+  (`udisks2` when no desktop automounter is available). Display's debug-probe
+  fallback requires Raspberry Pi OpenOCD with `rp2350.cfg`; OpenOCD is not bundled.
+- See [0.3.1 preview notes](https://github.com/freewili/freewili-gui/releases/tag/v0.3.1)
+  for validation and known limitations.
 
 ### macOS (Apple Silicon / arm64)
 
