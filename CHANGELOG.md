@@ -1,8 +1,8 @@
 # Release notes
 
-## 0.3.1 Linux preview - 2026-09-27
+## 0.3.1 Linux - 2026-09-27
 
-[Linux x86_64 preview](https://github.com/freewili/freewili-gui/releases/tag/v0.3.1).
+[Linux x86_64 release](https://github.com/freewili/freewili-gui/releases/tag/v0.3.1).
 Windows/macOS builds and verification remain pending.
 
 - Longer Main/Display settling, SD-mount, and USB reconnect windows during updates.

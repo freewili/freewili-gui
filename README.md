@@ -13,10 +13,10 @@ The current downloads for each platform are:
 | --- | --- | --- |
 | macOS Apple Silicon (arm64), macOS 26.0+ | 0.2.0 | [freewili-gui-0.2.0-macos-arm64.zip](https://github.com/freewili/freewili-gui/releases/download/v0.2.0/freewili-gui-0.2.0-macos-arm64.zip) |
 | Windows (x64), preview | 0.3.0 | [fwcom-0.3.0.zip](https://github.com/freewili/freewili-gui/releases/download/v0.3.0/fwcom-0.3.0.zip) |
-| Linux (x86_64), preview | 0.3.1 | [fwcom-0.3.1-linux-x86_64.zip](https://github.com/freewili/freewili-gui/releases/download/v0.3.1/fwcom-0.3.1-linux-x86_64.zip) |
+| Linux (x86_64) | 0.3.1 | [fwcom-0.3.1-linux-x86_64.zip](https://github.com/freewili/freewili-gui/releases/download/v0.3.1/fwcom-0.3.1-linux-x86_64.zip) |
 
 Windows 0.3.0 is a **preview** with unresolved GUI regression tests. It adds CM0 Linux tools, the Firmware Updater, and the latest OneWili
-binary streaming API. Linux 0.3.1 is also a **preview**, adding firmware-updater settling and
+binary streaming API. Linux 0.3.1 adds firmware-updater settling and
 reconnection fixes. Windows/macOS 0.3.1 builds and device tests are pending;
 macOS remains at 0.2.0.
 The previous [Windows 0.1.3 stable download](https://github.com/freewili/freewili-gui/releases/download/v0.1.3/fwcom-0.1.3.zip) remains available.
@@ -74,7 +74,7 @@ Notes:
 - Firmware Updater requires USB permissions and a mounted recovery volume
   (`udisks2` when no desktop automounter is available). Display's debug-probe
   fallback requires Raspberry Pi OpenOCD with `rp2350.cfg`; OpenOCD is not bundled.
-- See [0.3.1 preview notes](https://github.com/freewili/freewili-gui/releases/tag/v0.3.1)
+- See [0.3.1 release notes](https://github.com/freewili/freewili-gui/releases/tag/v0.3.1)
   for validation and known limitations.
 
 ### macOS (Apple Silicon / arm64)
