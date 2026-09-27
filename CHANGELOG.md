@@ -1,5 +1,21 @@
 # Release notes
 
+## 0.3.1 Windows and Linux - 2026-09-27
+
+[Windows x64 preview and Linux x86_64 release](https://github.com/freewili/freewili-gui/releases/tag/v0.3.1).
+Windows GUI regression failures remain unresolved. macOS remains at 0.2.0,
+with updater implementation and verification gaps.
+
+- Longer Main/Display settling, SD-mount, and USB reconnect windows during updates.
+- Accept successful power acknowledgements that contain startup diagnostics.
+- Detect disconnected POSIX serial ports and report Display probe USB failures.
+- Include OneWili Python sources, examples, and license in the Linux package.
+- Windows includes the updater fixes found during Linux testing, plus the
+  existing Wasm compiler, OneWili Python API/examples, map tools, Linux Imager
+  helper, and public plugins. Windows hardware flashing was not repeated.
+- Operator reported a successful hardware retry after the timing changes;
+  intermittent SD/probe issues and broader release qualification remain open.
+
 ## 0.3.0 preview - 2026-09-26
 
 [Windows x64 preview](https://github.com/freewili/freewili-gui/releases/tag/v0.3.0).
