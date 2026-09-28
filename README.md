@@ -11,7 +11,7 @@ The current downloads for each platform are:
 
 | Platform | Version | Download |
 | --- | --- | --- |
-| macOS Apple Silicon (arm64), macOS 26.0+ | 0.2.0 | [freewili-gui-0.2.0-macos-arm64.zip](https://github.com/freewili/freewili-gui/releases/download/v0.2.0/freewili-gui-0.2.0-macos-arm64.zip) |
+| macOS Apple Silicon (arm64), macOS 26.0+, preview | 0.3.2 | [freewili-gui-0.3.2-macos-arm64.zip](https://github.com/freewili/freewili-gui/releases/download/v0.3.2/freewili-gui-0.3.2-macos-arm64.zip) |
 | Windows (x64), preview | 0.3.1 | [fwcom-0.3.1.zip](https://github.com/freewili/freewili-gui/releases/download/v0.3.1/fwcom-0.3.1.zip) |
 | Linux (x86_64) | 0.3.1 | [fwcom-0.3.1-linux-x86_64.zip](https://github.com/freewili/freewili-gui/releases/download/v0.3.1/fwcom-0.3.1-linux-x86_64.zip) |
 
@@ -19,8 +19,10 @@ Windows 0.3.1 is a **preview** with unresolved GUI regression tests. It includes
 CM0 Linux tools, the Firmware Updater, and the OneWili binary streaming API.
 Windows and Linux 0.3.1 include updater reliability fixes from Linux testing:
 longer processor settling and reconnection waits, SD power/remount handling,
-and clearer USB debug-probe errors. A matching macOS build is pending;
-macOS remains at 0.2.0. Windows hardware flashing was not repeated for this package.
+and clearer USB debug-probe errors. macOS 0.3.2 is a preview with native firmware
+updating, SD-reader support, and FPGA-first CM0 startup. Complete Mac SD imaging,
+clean-machine checks, and Developer ID signing/notarization remain outstanding.
+Windows hardware flashing was not repeated for its 0.3.1 package.
 The previous [Windows 0.1.3 stable download](https://github.com/freewili/freewili-gui/releases/download/v0.1.3/fwcom-0.1.3.zip) remains available.
 
 ### Windows (x64)
@@ -84,7 +86,7 @@ Notes:
 Requires an Apple Silicon Mac running macOS 26.0 or later. This build does not
 run on Intel Macs.
 
-1. Download [freewili-gui-0.2.0-macos-arm64.zip](https://github.com/freewili/freewili-gui/releases/download/v0.2.0/freewili-gui-0.2.0-macos-arm64.zip).
+1. Download [freewili-gui-0.3.2-macos-arm64.zip](https://github.com/freewili/freewili-gui/releases/download/v0.3.2/freewili-gui-0.3.2-macos-arm64.zip).
 2. Extract the ZIP and move **FreeWili GUI.app** to Applications.
 
 Notes:
@@ -96,8 +98,13 @@ Notes:
   libraries are bundled. Homebrew is not required for the included tools.
 - Projects and settings are stored in
   `~/Library/Application Support/FreeWili GUI/`.
-- The HackRF plugin is not included in this package. See the
-  [0.2.0 release notes](https://github.com/freewili/freewili-gui/releases/tag/v0.2.0) for details and known limitations.
+- Firmware updating passed ten consecutive full-device runs on FX0054 before
+  packaging. Display debug-probe recovery requires separate Raspberry Pi
+  OpenOCD with RP2350 scripts; it is not bundled.
+- Mac SD-reader authorization is fixed, but complete SD imaging and subsequent
+  Linux boot remain unverified. This is a preview.
+- HackRF and PicoScope plugins are not included. See the
+  [0.3.2 release notes](https://github.com/freewili/freewili-gui/releases/tag/v0.3.2) for details and known limitations.
 
 ## Release notes
 
