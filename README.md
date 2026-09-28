@@ -13,13 +13,13 @@ The current downloads for each platform are:
 | --- | --- | --- |
 | macOS Apple Silicon (arm64), macOS 26.0+, preview | 0.3.2 | [freewili-gui-0.3.2-macos-arm64.zip](https://github.com/freewili/freewili-gui/releases/download/v0.3.2/freewili-gui-0.3.2-macos-arm64.zip) |
 | Windows (x64), preview | 0.3.2 | [fwcom-0.3.2.zip](https://github.com/freewili/freewili-gui/releases/download/v0.3.2/fwcom-0.3.2.zip) |
-| Linux (x86_64) | 0.3.1 | [fwcom-0.3.1-linux-x86_64.zip](https://github.com/freewili/freewili-gui/releases/download/v0.3.1/fwcom-0.3.1-linux-x86_64.zip) |
+| Linux (x86_64), preview | 0.3.3 | [fwcom-0.3.3-linux-x86_64.zip](https://github.com/freewili/freewili-gui/releases/download/v0.3.3/fwcom-0.3.3-linux-x86_64.zip) |
 
 Windows 0.3.2 is a **preview** with unresolved GUI regression tests. It includes
 CM0 Linux tools, the Firmware Updater, and the OneWili binary streaming API.
 Windows 0.3.2 adds FPGA-first CM0 startup and the consecutive-update serial
 discovery fix, alongside the existing updater settling/reconnection improvements.
-Linux remains at 0.3.1. macOS 0.3.2 is a preview with native firmware updating,
+Linux 0.3.3 is a preview adding the ESP32-C5 Wi-Fi & BT explorer. macOS 0.3.2 is a preview with native firmware updating,
 SD-reader support, and FPGA-first CM0 startup. Complete Mac SD imaging,
 clean-machine checks, and Developer ID signing/notarization remain outstanding.
 Windows hardware flashing was not repeated for its 0.3.2 package.
@@ -61,7 +61,9 @@ require compatible Main firmware and a CM0 image with the matching bridge.
 
 ### Linux (x86_64)
 
-1. Download `fwcom-0.3.1-linux-x86_64.zip` and extract it to a folder you can write to (for example your home directory). The app writes its `data/` folder and settings next to the `fwcom` binary; if that folder is read-only it falls back to `~/.local/share/fwcom`.
+The Wi-Fi & BT explorer requires the separate [ESP32-C5 companion firmware](https://github.com/freewili/freewili-gui/releases/download/v0.3.3/fwcom-0.3.3-esp32c5-companion.zip) for live capture. It replaces stock ESP32 wireless services; read its INSTALL.md first. Demo/import work without it. See the [0.3.3 preview notes](https://github.com/freewili/freewili-gui/releases/tag/v0.3.3) for verification limits.
+
+1. Download `fwcom-0.3.3-linux-x86_64.zip` and extract it to a folder you can write to (for example your home directory). The app writes its `data/` folder and settings next to the `fwcom` binary; if that folder is read-only it falls back to `~/.local/share/fwcom`.
 2. Install the system libraries the build links against. On Debian 13:
    `sudo apt install libavcodec61 libavformat61 libavutil59 libswresample5 libswscale8 libsqlite3-0 libegl1 libssl3t64 libbrotli1 libudev1`
    (older Ubuntu releases ship different FFmpeg package versions; the exact sonames the binary needs are listed in `README-linux.txt` inside the zip.)
@@ -79,7 +81,7 @@ Notes:
 - Firmware Updater requires USB permissions and a mounted recovery volume
   (`udisks2` when no desktop automounter is available). Display's debug-probe
   fallback requires Raspberry Pi OpenOCD with `rp2350.cfg`; OpenOCD is not bundled.
-- See [0.3.1 release notes](https://github.com/freewili/freewili-gui/releases/tag/v0.3.1)
+- See [0.3.3 release notes](https://github.com/freewili/freewili-gui/releases/tag/v0.3.3)
   for validation and known limitations.
 
 ### macOS (Apple Silicon / arm64)

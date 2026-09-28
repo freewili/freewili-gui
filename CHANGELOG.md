@@ -1,5 +1,32 @@
 # Release notes
 
+## 0.3.3 Linux preview — 2026-09-28
+
+New **Protocol → Wi-Fi & BT** explorer for the ESP32-C5 inside FreeWili 2.
+
+- BLE advertising and scan-response inspection, discovered names with gray MAC addresses, service/manufacturer decoding, raw bytes, and RSSI history.
+- Passive Wi-Fi management-frame capture on selected 2.4 GHz and 5 GHz channels, with country/channel controls.
+- Sortable single-line device rows, resizable device/detail panes, five-second arrival/departure highlights, and adjustable absence timeout.
+- Clear results while capture continues; capture import/export, demo data, and built-in Help.
+- ESP32 connection appears in Hardware Connection Settings and uses the internal USB hub.
+
+## Downloads and firmware
+
+This release provides Linux x86_64 only. Windows and macOS remain at 0.3.2; the new explorer has not been built or device-tested on those platforms.
+
+Download `fwcom-0.3.3-linux-x86_64.zip`. Linux requires the system libraries listed in its README-linux.txt, glibc 2.41 or newer, and a Vulkan-capable GPU.
+
+Live capture requires the separate `fwcom-0.3.3-esp32c5-companion.zip`. Read its INSTALL.md before installing. It replaces ESP32 wireless firmware, including stock Bottlenose services; it does not replace Main or Display. The GUI does not install it automatically. Demo/import can be used without installing firmware.
+
+BLE supports legacy advertisements/scan responses, not BT Classic, connected traffic, or extended advertisements. Wi-Fi captures management frames on one channel at a time, up to 512 bytes per frame; no 6 GHz or data-payload capture. Wi-Fi and BLE capture run separately.
+
+## Verification and remaining gaps
+
+Linux Release build and 34 sniffer checks passed. Feature testing on FreeWili FX0106 covered live BLE names, 2.4 GHz channels 1/6, 5 GHz channel 36, sorting, splitters, highlights, Help, and clearing during capture. Channel 149 tuning was acknowledged but reception was not verified. Not every selectable channel has been RF-tested.
+
+Windows/macOS feature validation, clean-machine Linux checks, physical USB unplug testing, and long-duration capture remain outstanding. Existing full-application GUI regression failures from prior previews have not been requalified. Firmware replacement and other device operations were not repeated across all three desktop platforms. This remains a preview.
+
+
 ## 0.3.2 Windows and macOS previews - 2026-09-28
 
 [Windows x64 and Apple Silicon macOS 26+ previews](https://github.com/freewili/freewili-gui/releases/tag/v0.3.2).
