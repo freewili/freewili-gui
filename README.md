@@ -12,22 +12,23 @@ The current downloads for each platform are:
 | Platform | Version | Download |
 | --- | --- | --- |
 | macOS Apple Silicon (arm64), macOS 26.0+, preview | 0.3.2 | [freewili-gui-0.3.2-macos-arm64.zip](https://github.com/freewili/freewili-gui/releases/download/v0.3.2/freewili-gui-0.3.2-macos-arm64.zip) |
-| Windows (x64), preview | 0.3.1 | [fwcom-0.3.1.zip](https://github.com/freewili/freewili-gui/releases/download/v0.3.1/fwcom-0.3.1.zip) |
+| Windows (x64), preview | 0.3.2 | [fwcom-0.3.2.zip](https://github.com/freewili/freewili-gui/releases/download/v0.3.2/fwcom-0.3.2.zip) |
 | Linux (x86_64) | 0.3.1 | [fwcom-0.3.1-linux-x86_64.zip](https://github.com/freewili/freewili-gui/releases/download/v0.3.1/fwcom-0.3.1-linux-x86_64.zip) |
 
-Windows 0.3.1 is a **preview** with unresolved GUI regression tests. It includes
+Windows 0.3.2 is a **preview** with unresolved GUI regression tests. It includes
 CM0 Linux tools, the Firmware Updater, and the OneWili binary streaming API.
-Windows and Linux 0.3.1 include updater reliability fixes from Linux testing:
-longer processor settling and reconnection waits, SD power/remount handling,
-and clearer USB debug-probe errors. macOS 0.3.2 is a preview with native firmware
-updating, SD-reader support, and FPGA-first CM0 startup. Complete Mac SD imaging,
+Windows 0.3.2 adds FPGA-first CM0 startup and the consecutive-update serial
+discovery fix, alongside the existing updater settling/reconnection improvements.
+Linux remains at 0.3.1. macOS 0.3.2 is a preview with native firmware updating,
+SD-reader support, and FPGA-first CM0 startup. Complete Mac SD imaging,
 clean-machine checks, and Developer ID signing/notarization remain outstanding.
-Windows hardware flashing was not repeated for its 0.3.1 package.
+Windows hardware flashing was not repeated for its 0.3.2 package.
 The previous [Windows 0.1.3 stable download](https://github.com/freewili/freewili-gui/releases/download/v0.1.3/fwcom-0.1.3.zip) remains available.
 
 ### Windows (x64)
 
-1. Download [fwcom-0.3.1.zip](https://github.com/freewili/freewili-gui/releases/download/v0.3.1/fwcom-0.3.1.zip).
+1. Download [fwcom-0.3.2.zip](https://github.com/freewili/freewili-gui/releases/download/v0.3.2/fwcom-0.3.2.zip)
+   and verify it against [SHA256SUMS-windows.txt](https://github.com/freewili/freewili-gui/releases/download/v0.3.2/SHA256SUMS-windows.txt).
 2. Extract it to a folder you can write to, such as your Documents or Desktop
    folder. The app stores its `data\` folder and settings next to `fwcom.exe`,
    so `C:\Program Files` will not work.
@@ -47,7 +48,7 @@ Notes:
   path does not need it.
 - PicoScope hardware requires its PicoSDK runtime and device driver. HackRF
   is not included in this package. Rust Wasm requires a separate Rust toolchain.
-- Read the [0.3.1 release notes](https://github.com/freewili/freewili-gui/releases/tag/v0.3.1)
+- Read the [0.3.2 release notes](https://github.com/freewili/freewili-gui/releases/tag/v0.3.2)
   for firmware requirements, verification results, and known limitations.
 
 ### Linux applications on FreeWili 2
