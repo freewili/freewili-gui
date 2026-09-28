@@ -1,5 +1,19 @@
 # Release notes
 
+## 0.3.2 macOS preview - 2026-09-28
+
+[Apple Silicon preview for macOS 26+](https://github.com/freewili/freewili-gui/releases/tag/v0.3.2).
+Windows and Linux remain at 0.3.1; matching 0.3.2 validation is pending.
+
+- Native Mac firmware updater discovery and private Main recovery-volume mounting.
+- Fix stale serial discovery between consecutive firmware updates.
+- Enable Mac SD-reader imaging and correct the disk authorization handoff.
+- Power FPGA before CM0 and RUN in Linux Console and Linux Imager.
+- Updater implementation passed ten consecutive Main + Display + wifiCPU runs
+  on FX0054 before this versioned package; the archive was not endurance-tested.
+- Complete physical SD imaging/boot, clean-machine verification, and Developer ID
+  signing/notarization remain outstanding. Display SWD needs external RP2350 OpenOCD.
+
 ## 0.3.1 Windows and Linux - 2026-09-27
 
 [Windows x64 preview and Linux x86_64 release](https://github.com/freewili/freewili-gui/releases/tag/v0.3.1).
