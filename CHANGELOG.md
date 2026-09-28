@@ -1,10 +1,15 @@
 # Release notes
 
-## 0.3.2 macOS preview - 2026-09-28
+## 0.3.2 Windows and macOS previews - 2026-09-28
 
-[Apple Silicon preview for macOS 26+](https://github.com/freewili/freewili-gui/releases/tag/v0.3.2).
-Windows and Linux remain at 0.3.1; matching 0.3.2 validation is pending.
+[Windows x64 and Apple Silicon macOS 26+ previews](https://github.com/freewili/freewili-gui/releases/tag/v0.3.2).
+Linux remains at 0.3.1; matching Linux 0.3.2 validation is pending.
 
+- Windows package refreshed to 0.3.2 with FPGA-first CM0 startup, the consecutive
+  firmware-update serial discovery fix, current OneWili sources, the bundled
+  Wasm compiler, map tools, Linux Imager helper, and public instrument plugins.
+- Windows remains unsigned and a preview: existing GUI regression failures,
+  clean-machine/N/KN checks, and repeated Windows hardware flashing remain open.
 - Native Mac firmware updater discovery and private Main recovery-volume mounting.
 - Fix stale serial discovery between consecutive firmware updates.
 - Enable Mac SD-reader imaging and correct the disk authorization handoff.
