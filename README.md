@@ -11,7 +11,7 @@ The current downloads for each platform are:
 
 | Platform | Version | Download |
 | --- | --- | --- |
-| macOS Apple Silicon (arm64), macOS 26.0+, preview | 0.3.2 | [freewili-gui-0.3.2-macos-arm64.zip](https://github.com/freewili/freewili-gui/releases/download/v0.3.2/freewili-gui-0.3.2-macos-arm64.zip) |
+| macOS Apple Silicon (arm64), macOS 26.0+ | 0.4.2 | [freewili-gui-0.4.2-macos-arm64.zip](https://github.com/freewili/freewili-gui/releases/download/v0.4.2/freewili-gui-0.4.2-macos-arm64.zip) |
 | Windows (x64) | 0.4.0 | [fwcom-0.4.0.zip](https://github.com/freewili/freewili-gui/releases/download/v0.4.0/fwcom-0.4.0.zip) |
 | Linux (x86_64) | 0.4.1 | [fwcom-0.4.1-linux-x86_64.zip](https://github.com/freewili/freewili-gui/releases/download/v0.4.1/fwcom-0.4.1-linux-x86_64.zip) or [fwcom_0.4.1_amd64.deb](https://github.com/freewili/freewili-gui/releases/download/v0.4.1/fwcom_0.4.1_amd64.deb) |
 
@@ -20,9 +20,10 @@ Windows 0.4.0 adds one-click official firmware updates for FreeWili OG
 bootloader when a board needs it, plus the Wi-Fi & BT explorer and the latest
 Graphical Panels, logic, CAN FD and rThon features.
 Linux 0.4.1 adds the same features plus a Wi-Fi connection to FreeWili 2
-(Main over the standard Wi-Fi firmware) and a Debian package. macOS 0.3.2 is a preview with native firmware updating,
-SD-reader support, and FPGA-first CM0 startup. Complete Mac SD imaging,
-clean-machine checks, and Developer ID signing/notarization remain outstanding.
+(Main over the standard Wi-Fi firmware) and a Debian package. macOS 0.4.2 brings
+the OG firmware updates and the Wi-Fi connection to Apple Silicon Macs. It also
+connects over USB to an OG running the official ogfw firmware. Complete Mac SD
+imaging, clean-machine checks, and Developer ID signing/notarization remain outstanding.
 The previous [Windows 0.1.3 stable download](https://github.com/freewili/freewili-gui/releases/download/v0.1.3/fwcom-0.1.3.zip) remains available.
 
 ### Windows (x64)
@@ -94,25 +95,28 @@ Notes:
 Requires an Apple Silicon Mac running macOS 26.0 or later. This build does not
 run on Intel Macs.
 
-1. Download [freewili-gui-0.3.2-macos-arm64.zip](https://github.com/freewili/freewili-gui/releases/download/v0.3.2/freewili-gui-0.3.2-macos-arm64.zip).
+1. Download [freewili-gui-0.4.2-macos-arm64.zip](https://github.com/freewili/freewili-gui/releases/download/v0.4.2/freewili-gui-0.4.2-macos-arm64.zip)
+   and verify it against [SHA256SUMS-macos.txt](https://github.com/freewili/freewili-gui/releases/download/v0.4.2/SHA256SUMS-macos.txt).
 2. Extract the ZIP and move **FreeWili GUI.app** to Applications.
 
 Notes:
 
-- This build is ad-hoc signed, not Developer ID signed or notarized. macOS
-  Gatekeeper may block a downloaded copy; signing and notarization are still
-  required for normal customer distribution.
+- This build is ad-hoc signed, not Developer ID signed or notarized. If macOS
+  blocks the first launch, open **System Settings > Privacy & Security** and
+  choose **Open Anyway**. Signing and notarization are still outstanding.
 - Python 3.13, its debugger, the OneWili API, Clang, wasm-ld, and runtime
   libraries are bundled. Homebrew is not required for the included tools.
 - Projects and settings are stored in
   `~/Library/Application Support/FreeWili GUI/`.
-- Firmware updating passed ten consecutive full-device runs on FX0054 before
-  packaging. Display debug-probe recovery requires separate Raspberry Pi
-  OpenOCD with RP2350 scripts; it is not bundled.
+- Display debug-probe recovery requires separate Raspberry Pi OpenOCD with
+  RP2350 scripts; it is not bundled.
+- An OG running ogfw connected over USB on a Mac. The OG **Firmware** tab, the
+  Wi-Fi connection and network search have not yet been run against hardware
+  on a Mac.
 - Mac SD-reader authorization is fixed, but complete SD imaging and subsequent
-  Linux boot remain unverified. This is a preview.
+  Linux boot remain unverified.
 - HackRF and PicoScope plugins are not included. See the
-  [0.3.2 release notes](https://github.com/freewili/freewili-gui/releases/tag/v0.3.2) for details and known limitations.
+  [0.4.2 release notes](https://github.com/freewili/freewili-gui/releases/tag/v0.4.2) for details and known limitations.
 
 ## Release notes
 
