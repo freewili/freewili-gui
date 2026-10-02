@@ -1,5 +1,20 @@
 # Release notes
 
+## 0.4.2 macOS - 2026-10-02
+
+[macOS Apple Silicon release](https://github.com/freewili/freewili-gui/releases/tag/v0.4.2) (macOS 26.0+).
+Windows is at 0.4.0 and Linux at 0.4.1.
+
+- Brings the 0.4.0 and 0.4.1 features to macOS: the FreeWili OG updater's one-click
+  **Firmware** tab, the Wi-Fi connection to FreeWili 2 with **Search network**, the
+  **Protocol > Wi-Fi & BT** explorer, Graphical Panels dashboards, CAN FD DBC names,
+  Logic Analyzer `.dom` captures and more. AI Workbench is now included on macOS.
+- An OG running the official ogfw firmware now connects over USB (Main, Display and FPGA).
+- Package audits, a fresh-extraction launch and 39 GUI tests passed on the build Mac.
+  Native tests passed 17/18: the Wi-Fi discovery test cannot run beside macOS's mDNS
+  service. OG firmware updates, real Wi-Fi use, a clean Mac/Gatekeeper launch and
+  notarization are not verified.
+
 ## 0.4.1 Linux - 2026-10-02
 
 [Linux x86_64 release](https://github.com/freewili/freewili-gui/releases/tag/v0.4.1) as a ZIP and a Debian package.
