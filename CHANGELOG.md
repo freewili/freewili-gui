@@ -1,5 +1,23 @@
 # Release notes
 
+## 0.4.0 Windows - 2026-10-02
+
+[Windows x64 release](https://github.com/freewili/freewili-gui/releases/tag/v0.4.0).
+Linux remains at 0.3.3 (preview) and macOS at 0.3.2 (preview).
+
+- New **Firmware** tab in the FreeWili OG updater: one **Update and verify** button
+  installs the official Stable or Preview OG firmware, installs the OG display
+  bootloader first when a board needs it, and confirms MAIN and DISPLAY report
+  the release. The Bootloader tab's Install and Erase actions now work.
+- First Windows build of the **Protocol > Wi-Fi & BT** explorer (not yet
+  device-tested on Windows).
+- Graphical Panels instrument dashboards, infotainment templates and modern widgets;
+  CAN FD event names from SD-card DBC files; Logic Analyzer `.dom` captures with
+  shared cursor bubbles; rThon examples browser; embedded default map; more robust
+  OneWili serial streaming; AI Workbench on AIlocal 0.2.1.
+- Native CTest 45/45; full GUI suite 739/764 with no new failures versus 0.3.2.
+  Clean Windows VM/N/KN checks and code signing remain outstanding.
+
 ## 0.3.2 Windows and macOS previews - 2026-09-28
 
 [Windows x64 and Apple Silicon macOS 26+ previews](https://github.com/freewili/freewili-gui/releases/tag/v0.3.2).
