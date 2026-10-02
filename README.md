@@ -13,13 +13,14 @@ The current downloads for each platform are:
 | --- | --- | --- |
 | macOS Apple Silicon (arm64), macOS 26.0+, preview | 0.3.2 | [freewili-gui-0.3.2-macos-arm64.zip](https://github.com/freewili/freewili-gui/releases/download/v0.3.2/freewili-gui-0.3.2-macos-arm64.zip) |
 | Windows (x64) | 0.4.0 | [fwcom-0.4.0.zip](https://github.com/freewili/freewili-gui/releases/download/v0.4.0/fwcom-0.4.0.zip) |
-| Linux (x86_64) | 0.3.1 | [fwcom-0.3.1-linux-x86_64.zip](https://github.com/freewili/freewili-gui/releases/download/v0.3.1/fwcom-0.3.1-linux-x86_64.zip) |
+| Linux (x86_64) | 0.4.1 | [fwcom-0.4.1-linux-x86_64.zip](https://github.com/freewili/freewili-gui/releases/download/v0.4.1/fwcom-0.4.1-linux-x86_64.zip) or [fwcom_0.4.1_amd64.deb](https://github.com/freewili/freewili-gui/releases/download/v0.4.1/fwcom_0.4.1_amd64.deb) |
 
 Windows 0.4.0 adds one-click official firmware updates for FreeWili OG
 (**Setup > FreeWili OG updater > Firmware**), including installing the OG display
 bootloader when a board needs it, plus the Wi-Fi & BT explorer and the latest
 Graphical Panels, logic, CAN FD and rThon features.
-Linux remains at 0.3.1. macOS 0.3.2 is a preview with native firmware updating,
+Linux 0.4.1 adds the same features plus a Wi-Fi connection to FreeWili 2
+(Main over the standard Wi-Fi firmware) and a Debian package. macOS 0.3.2 is a preview with native firmware updating,
 SD-reader support, and FPGA-first CM0 startup. Complete Mac SD imaging,
 clean-machine checks, and Developer ID signing/notarization remain outstanding.
 The previous [Windows 0.1.3 stable download](https://github.com/freewili/freewili-gui/releases/download/v0.1.3/fwcom-0.1.3.zip) remains available.
@@ -60,15 +61,20 @@ require compatible Main firmware and a CM0 image with the matching bridge.
 
 ### Linux (x86_64)
 
-1. Download `fwcom-0.3.1-linux-x86_64.zip` and extract it to a folder you can write to (for example your home directory). The app writes its `data/` folder and settings next to the `fwcom` binary; if that folder is read-only it falls back to `~/.local/share/fwcom`.
+Install the [Debian package](https://github.com/freewili/freewili-gui/releases/download/v0.4.1/fwcom_0.4.1_amd64.deb)
+with `sudo apt install ./fwcom_0.4.1_amd64.deb`, which pulls in the system libraries and adds
+a launcher, or use the portable ZIP. Verify either against
+[SHA256SUMS-linux.txt](https://github.com/freewili/freewili-gui/releases/download/v0.4.1/SHA256SUMS-linux.txt).
+
+1. Download `fwcom-0.4.1-linux-x86_64.zip` and extract it to a folder you can write to (for example your home directory). The app writes its `data/` folder and settings next to the `fwcom` binary; if that folder is read-only it falls back to `~/.local/share/fwcom`.
 2. Install the system libraries the build links against. On Debian 13:
-   `sudo apt install libavcodec61 libavformat61 libavutil59 libswresample5 libswscale8 libsqlite3-0 libegl1 libssl3t64 libbrotli1 libudev1`
+   `sudo apt install libavcodec61 libavformat61 libavutil59 libswresample5 libswscale8 libsqlite3-0 libegl1 libssl3t64 libbrotli1 libudev1 libglib2.0-0t64`
    (older Ubuntu releases ship different FFmpeg package versions; the exact sonames the binary needs are listed in `README-linux.txt` inside the zip.)
 3. Run `./fwcom`.
 
 Notes:
 
-- Built on a Debian 13 derivative (glibc 2.41, GCC 14). It will not start on older distributions with an older glibc.
+- Built against Debian 13-era libraries (FFmpeg 7, glibc 2.38 or newer, libstdc++ 14). Older distributions are not verified.
 - Requires a GPU driver with Vulkan support.
 - Unlike the Windows zip, FFmpeg and OpenSSL are not bundled; they come from the distribution packages above.
 - Optional at runtime: `libsecret-1-0` (remembers the AI API key), `xdg-utils` (Open-folder buttons), `pulseview` (Logic Analyzer VCD hand-off), `python3` + `python3-debugpy` (Python editor Run/Debug).
@@ -78,7 +84,9 @@ Notes:
 - Firmware Updater requires USB permissions and a mounted recovery volume
   (`udisks2` when no desktop automounter is available). Display's debug-probe
   fallback requires Raspberry Pi OpenOCD with `rp2350.cfg`; OpenOCD is not bundled.
-- See [0.3.1 release notes](https://github.com/freewili/freewili-gui/releases/tag/v0.3.1)
+- The Wi-Fi & BT explorer needs the separate [ESP32-C5 companion firmware](https://github.com/freewili/freewili-gui/releases/download/v0.3.3/fwcom-0.3.3-esp32c5-companion.zip)
+  for live capture; it replaces the stock Wi-Fi firmware services used by the Wi-Fi connection. Read its INSTALL.md first.
+- See [0.4.1 release notes](https://github.com/freewili/freewili-gui/releases/tag/v0.4.1)
   for validation and known limitations.
 
 ### macOS (Apple Silicon / arm64)
