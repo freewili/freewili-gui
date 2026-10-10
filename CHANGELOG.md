@@ -1,5 +1,21 @@
 # Release notes
 
+## 0.4.4 Windows and Linux - 2026-10-10
+
+[Windows x64 and Linux x86_64 release](https://github.com/freewili/freewili-gui/releases/tag/v0.4.4).
+
+- GridCalc spreadsheets in Graphical Panels: formulas, formatting, XLS/XLSX
+  import/export, app signals, and script/WiliBlock actions.
+- PCAP-backed LIDAR views and expanded control help.
+- Fixes for panel properties, text/numeric signals, images, undo, and rendering.
+- AI Workbench stores its runtime state in the user's application data instead
+  of requiring the developer's source checkout.
+- Fix an XML memory-reader boundary defect affecting truncated input and
+  shared panel undo/paste parsing.
+- macOS remains at Apple Silicon 0.4.2 and Intel 0.4.3; the new changes have
+  not yet been built or verified on macOS. See the release notes for testing
+  details and remaining limitations.
+
 ## 0.4.2 macOS - 2026-10-02
 
 [macOS Apple Silicon release](https://github.com/freewili/freewili-gui/releases/tag/v0.4.2) (macOS 26.0+).
