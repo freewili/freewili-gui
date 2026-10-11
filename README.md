@@ -11,25 +11,26 @@ The current downloads for each platform are:
 
 | Platform | Version | Download |
 | --- | --- | --- |
+| macOS Intel (x86_64), macOS 12+ | 0.4.3 | [freewili-gui-0.4.3-macos-x86_64.zip](https://github.com/freewili/freewili-gui/releases/download/v0.4.3/freewili-gui-0.4.3-macos-x86_64.zip) |
 | macOS Apple Silicon (arm64), macOS 26.0+ | 0.4.2 | [freewili-gui-0.4.2-macos-arm64.zip](https://github.com/freewili/freewili-gui/releases/download/v0.4.2/freewili-gui-0.4.2-macos-arm64.zip) |
-| Windows (x64) | 0.4.0 | [fwcom-0.4.0.zip](https://github.com/freewili/freewili-gui/releases/download/v0.4.0/fwcom-0.4.0.zip) |
-| Linux (x86_64) | 0.4.1 | [fwcom-0.4.1-linux-x86_64.zip](https://github.com/freewili/freewili-gui/releases/download/v0.4.1/fwcom-0.4.1-linux-x86_64.zip) or [fwcom_0.4.1_amd64.deb](https://github.com/freewili/freewili-gui/releases/download/v0.4.1/fwcom_0.4.1_amd64.deb) |
+| Windows (x64) | 0.4.4 | [fwcom-0.4.4.zip](https://github.com/freewili/freewili-gui/releases/download/v0.4.4/fwcom-0.4.4.zip) |
+| Linux (x86_64) | 0.4.4 | [fwcom-0.4.4-linux-x86_64.zip](https://github.com/freewili/freewili-gui/releases/download/v0.4.4/fwcom-0.4.4-linux-x86_64.zip) or [fwcom_0.4.4_amd64.deb](https://github.com/freewili/freewili-gui/releases/download/v0.4.4/fwcom_0.4.4_amd64.deb) |
 
-Windows 0.4.0 adds one-click official firmware updates for FreeWili OG
-(**Setup > FreeWili OG updater > Firmware**), including installing the OG display
-bootloader when a board needs it, plus the Wi-Fi & BT explorer and the latest
-Graphical Panels, logic, CAN FD and rThon features.
-Linux 0.4.1 adds the same features plus a Wi-Fi connection to FreeWili 2
-(Main over the standard Wi-Fi firmware) and a Debian package. macOS 0.4.2 brings
-the OG firmware updates and the Wi-Fi connection to Apple Silicon Macs. It also
-connects over USB to an OG running the official ogfw firmware. Complete Mac SD
-imaging, clean-machine checks, and Developer ID signing/notarization remain outstanding.
-The previous [Windows 0.1.3 stable download](https://github.com/freewili/freewili-gui/releases/download/v0.1.3/fwcom-0.1.3.zip) remains available.
+Windows and Linux 0.4.4 add GridCalc spreadsheets to Graphical Panels, including
+formulas, workbook import/export, app signals, and script/WiliBlock actions.
+They also include PCAP-backed LIDAR views, improvements to panel editing,
+control behavior and help, and an XML memory-reader boundary fix. See the
+[0.4.4 release notes](https://github.com/freewili/freewili-gui/releases/tag/v0.4.4)
+for verification results and platform limitations.
+
+The current macOS downloads remain Apple Silicon 0.4.2 and Intel 0.4.3.
+They do not include the new GridCalc changes; a 0.4.4 macOS build has not yet
+been verified. Firmware and CM0 operating-system images are separate downloads.
 
 ### Windows (x64)
 
-1. Download [fwcom-0.4.0.zip](https://github.com/freewili/freewili-gui/releases/download/v0.4.0/fwcom-0.4.0.zip)
-   and verify it against [SHA256SUMS-windows.txt](https://github.com/freewili/freewili-gui/releases/download/v0.4.0/SHA256SUMS-windows.txt).
+1. Download [fwcom-0.4.4.zip](https://github.com/freewili/freewili-gui/releases/download/v0.4.4/fwcom-0.4.4.zip)
+   and verify it against [SHA256SUMS-windows.txt](https://github.com/freewili/freewili-gui/releases/download/v0.4.4/SHA256SUMS-windows.txt).
 2. Extract it to a folder you can write to, such as your Documents or Desktop
    folder. The app stores its `data\` folder and settings next to `fwcom.exe`,
    so `C:\Program Files` will not work.
@@ -49,7 +50,7 @@ Notes:
   path does not need it.
 - PicoScope hardware requires its PicoSDK runtime and device driver. HackRF
   is not included in this package. Rust Wasm requires a separate Rust toolchain.
-- Read the [0.4.0 release notes](https://github.com/freewili/freewili-gui/releases/tag/v0.4.0)
+- Read the [0.4.4 release notes](https://github.com/freewili/freewili-gui/releases/tag/v0.4.4)
   for firmware requirements, verification results, and known limitations.
 
 ### Linux applications on FreeWili 2
@@ -62,12 +63,12 @@ require compatible Main firmware and a CM0 image with the matching bridge.
 
 ### Linux (x86_64)
 
-Install the [Debian package](https://github.com/freewili/freewili-gui/releases/download/v0.4.1/fwcom_0.4.1_amd64.deb)
-with `sudo apt install ./fwcom_0.4.1_amd64.deb`, which pulls in the system libraries and adds
+Install the [Debian package](https://github.com/freewili/freewili-gui/releases/download/v0.4.4/fwcom_0.4.4_amd64.deb)
+with `sudo apt install ./fwcom_0.4.4_amd64.deb`, which pulls in the system libraries and adds
 a launcher, or use the portable ZIP. Verify either against
-[SHA256SUMS-linux.txt](https://github.com/freewili/freewili-gui/releases/download/v0.4.1/SHA256SUMS-linux.txt).
+[SHA256SUMS-linux.txt](https://github.com/freewili/freewili-gui/releases/download/v0.4.4/SHA256SUMS-linux.txt).
 
-1. Download `fwcom-0.4.1-linux-x86_64.zip` and extract it to a folder you can write to (for example your home directory). The app writes its `data/` folder and settings next to the `fwcom` binary; if that folder is read-only it falls back to `~/.local/share/fwcom`.
+1. Download `fwcom-0.4.4-linux-x86_64.zip` and extract it to a folder you can write to (for example your home directory). The app writes its `data/` folder and settings next to the `fwcom` binary; if that folder is read-only it falls back to `~/.local/share/fwcom`.
 2. Install the system libraries the build links against. On Debian 13:
    `sudo apt install libavcodec61 libavformat61 libavutil59 libswresample5 libswscale8 libsqlite3-0 libegl1 libssl3t64 libbrotli1 libudev1 libglib2.0-0t64`
    (older Ubuntu releases ship different FFmpeg package versions; the exact sonames the binary needs are listed in `README-linux.txt` inside the zip.)
@@ -87,8 +88,17 @@ Notes:
   fallback requires Raspberry Pi OpenOCD with `rp2350.cfg`; OpenOCD is not bundled.
 - The Wi-Fi & BT explorer needs the separate [ESP32-C5 companion firmware](https://github.com/freewili/freewili-gui/releases/download/v0.3.3/fwcom-0.3.3-esp32c5-companion.zip)
   for live capture; it replaces the stock Wi-Fi firmware services used by the Wi-Fi connection. Read its INSTALL.md first.
-- See [0.4.1 release notes](https://github.com/freewili/freewili-gui/releases/tag/v0.4.1)
+- See [0.4.4 release notes](https://github.com/freewili/freewili-gui/releases/tag/v0.4.4)
   for validation and known limitations.
+
+### macOS (Intel / x86_64)
+
+For Intel Macs running macOS 12 Monterey or later, use
+[freewili-gui-0.4.3-macos-x86_64.zip](https://github.com/freewili/freewili-gui/releases/download/v0.4.3/freewili-gui-0.4.3-macos-x86_64.zip)
+and verify it against
+[SHA256SUMS-macos-x86_64.txt](https://github.com/freewili/freewili-gui/releases/download/v0.4.3/SHA256SUMS-macos-x86_64.txt).
+See the [Intel release notes](https://github.com/freewili/freewili-gui/releases/tag/v0.4.3)
+for installation details and known limitations.
 
 ### macOS (Apple Silicon / arm64)
 
