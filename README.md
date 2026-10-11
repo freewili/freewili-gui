@@ -27,6 +27,16 @@ The current macOS downloads remain Apple Silicon 0.4.2 and Intel 0.4.3.
 They do not include the new GridCalc changes; a 0.4.4 macOS build has not yet
 been verified. Firmware and CM0 operating-system images are separate downloads.
 
+**Wi-Fi & BT capture:** use a FreeWili 2 connected by USB with standard
+ESP32/wifiCPU firmware **[Bottlenose v10](https://github.com/freewili/FREE-WILi2-Firmware/releases/tag/v10) or newer**. Capture is built in; the old
+separate companion firmware is not required. If the explorer reports that
+capture is missing, choose **Update ESP32 firmware** to open the normal updater
+with wifiCPU selected. Wi-Fi capture needs the ESP32 radio free of station,
+access-point and Wi-Fi scan activity. Connect Main by USB before disabling its
+Wi-Fi connection; the explorer's Disconnect/Stop AP actions change saved settings
+until you re-enable them. Stop AP also needs Main v10 or newer. BLE capture can
+remain available while Wi-Fi is busy.
+
 ### Windows (x64)
 
 1. Download [fwcom-0.4.4.zip](https://github.com/freewili/freewili-gui/releases/download/v0.4.4/fwcom-0.4.4.zip)
@@ -86,8 +96,6 @@ Notes:
 - Firmware Updater requires USB permissions and a mounted recovery volume
   (`udisks2` when no desktop automounter is available). Display's debug-probe
   fallback requires Raspberry Pi OpenOCD with `rp2350.cfg`; OpenOCD is not bundled.
-- The Wi-Fi & BT explorer needs the separate [ESP32-C5 companion firmware](https://github.com/freewili/freewili-gui/releases/download/v0.3.3/fwcom-0.3.3-esp32c5-companion.zip)
-  for live capture; it replaces the stock Wi-Fi firmware services used by the Wi-Fi connection. Read its INSTALL.md first.
 - See [0.4.4 release notes](https://github.com/freewili/freewili-gui/releases/tag/v0.4.4)
   for validation and known limitations.
 
