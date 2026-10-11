@@ -12,6 +12,9 @@
   of requiring the developer's source checkout.
 - Fix an XML memory-reader boundary defect affecting truncated input and
   shared panel undo/paste parsing.
+- Wi-Fi & BT capture uses standard Bottlenose/wifiCPU v10 or newer over USB;
+  the separate companion firmware is no longer required. Wi-Fi capture needs
+  the ESP32 radio free of station, access-point and Wi-Fi scan activity.
 - macOS remains at Apple Silicon 0.4.2 and Intel 0.4.3; the new changes have
   not yet been built or verified on macOS. See the release notes for testing
   details and remaining limitations.
