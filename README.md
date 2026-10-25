@@ -136,6 +136,22 @@ Notes:
 - HackRF and PicoScope plugins are not included. See the
   [0.4.2 release notes](https://github.com/freewili/freewili-gui/releases/tag/v0.4.2) for details and known limitations.
 
+## Creating plugins
+
+FreeWili GUI loads native plugins: dockable views, Graphical Panel controls
+and MCP tools written in C or C++ against the
+**[FreeWili GUI SDK](https://github.com/freewili/freewiligui-sdk)**. The SDK
+repository has the quick start, the API reference, a plugin template and
+complete examples (a Canvas gauge, a panel control, a FreeWili dashboard with
+device discovery and asynchronous jobs).
+
+To install a plugin, copy its library (`.dll`, `.so` or `.dylib`) into the
+`plugins` folder beside the executable, or into the `plugins` folder of the
+application's data directory, then open **Setup > Manage plugins** to see its
+status, picture and help, and to enable or reload it. A plugin must be built
+for the same configuration as the application (the released builds are
+Release builds); the loader reports a mismatch in Manage plugins.
+
 ## Release notes
 
 See [CHANGELOG.md](CHANGELOG.md).
